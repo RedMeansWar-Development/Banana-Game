@@ -1,9 +1,10 @@
 using BananaGame.Player;
 
-namespace BananaGame.Interfaces;
-
-public interface IInteractable
+namespace BananaGame.Interfaces
 {
-    void Interact(PlayerController player);
-    string InteractPrompt { get; }
+    public interface IInteractable
+    {
+        void Interact(PlayerController player);
+        string InteractPrompt { get; }
+    }
 }

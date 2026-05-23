@@ -1,22 +1,23 @@
 using UnityEngine;
 
-namespace BananaGame.BananaTime;
-
-public class EraDefinition : ScriptableObject
+namespace BananaGame.BananaTime
 {
-    [Header("Identity")]
-    public string eraName;
-    public int eraIndex;
+    public class EraDefinition : ScriptableObject
+    {
+        [Header("Identity")]
+        public string eraName;
+        public int eraIndex;
 
-    [Header("Visuals")]
-    public Color ambientColor = Color.white;
-    public Material skyboxMaterial;
+        [Header("Visuals")]
+        public Color ambientColor = Color.white;
+        public Material skyboxMaterial;
 
-    [Header("Audio")]
-    public AudioClip musicClip;
-    public AudioClip ambientClip;
+        [Header("Audio")]
+        public AudioClip musicClip;
+        public AudioClip ambientClip;
 
-    [Header("World")]
-    public GameObject tilemapPrefab;
-    public GameObject[] enemyPrefabs;
+        [Header("World")]
+        public GameObject tilemapPrefab;
+        public GameObject[] enemyPrefabs;
+    }
 }

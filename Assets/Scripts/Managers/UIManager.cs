@@ -5,83 +5,84 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BananaGame.Managers;
-
-public class UIManager : MonoBehaviour
+namespace BananaGame.Managers
 {
-    public static UIManager Instance { get; private set; }
-
-    [Header("HUD")]
-    public TextMeshProUGUI eraLabel;
-    public TextMeshProUGUI bananaChargesLabel;
-    public TextMeshProUGUI interactPromptLabel;
-    public TextMeshProUGUI messageLabel;
-
-    [Header("Timeline Bar")]
-    public Slider timelineSlider;
-
-    private Coroutine _messageCoroutine;
-
-    private void Awake()
+    public class UIManager : MonoBehaviour
     {
-        if (Instance is not null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-    }
+        public static UIManager Instance { get; private set; }
 
-    private void Start()
-    {
-        if (TimeController.Instance is not null)
-            TimeController.Instance.OnEraChanged += OnEraChanged;
+        [Header("HUD")]
+        public TextMeshProUGUI eraLabel;
+        public TextMeshProUGUI bananaChargesLabel;
+        public TextMeshProUGUI interactPromptLabel;
+        public TextMeshProUGUI messageLabel;
 
-        HideInteractPrompt();
-        if (messageLabel) messageLabel.gameObject.SetActive(false);
-    }
+        [Header("Timeline Bar")]
+        public Slider timelineSlider;
 
-    private void OnDestroy()
-    {
-        if (TimeController.Instance is not null)
-            TimeController.Instance.OnEraChanged -= OnEraChanged;
-    }
+        private Coroutine _messageCoroutine;
 
-    private void OnEraChanged(EraDefinition era)
-    {
-        if (eraLabel) eraLabel.text = era.eraName;
-        if (timelineSlider) timelineSlider.value = era.eraIndex;
-    }
-
-    public void UpdateBananaCharges(int current, int max)
-    {
-        if (bananaChargesLabel)
-            bananaChargesLabel.text = $"Banana: {current}/{max}";
-    }
-
-    public void ShowInteractPrompt(string prompt)
-    {
-        if (interactPromptLabel)
+        private void Awake()
         {
-            interactPromptLabel.text = prompt;
-            interactPromptLabel.gameObject.SetActive(true);
+            if (Instance is not null && Instance != this) { Destroy(gameObject); return; }
+            Instance = this;
         }
-    }
 
-    public void HideInteractPrompt()
-    {
-        if (interactPromptLabel)
-            interactPromptLabel.gameObject.SetActive(false);
-    }
+        private void Start()
+        {
+            if (TimeController.Instance is not null)
+                TimeController.Instance.OnEraChanged += OnEraChanged;
 
-    public void ShowMessage(string message, float duration = 2.5f)
-    {
-        if (messageLabel == null) return;
-        if (_messageCoroutine != null) StopCoroutine(_messageCoroutine);
-        _messageCoroutine = StartCoroutine(ShowMessageRoutine(message, duration));
-    }
+            HideInteractPrompt();
+            if (messageLabel) messageLabel.gameObject.SetActive(false);
+        }
 
-    private IEnumerator ShowMessageRoutine(string message, float duration)
-    {
-        messageLabel.text = message;
-        messageLabel.gameObject.SetActive(true);
-        yield return new WaitForSeconds(duration);
-        messageLabel.gameObject.SetActive(false);
+        private void OnDestroy()
+        {
+            if (TimeController.Instance is not null)
+                TimeController.Instance.OnEraChanged -= OnEraChanged;
+        }
+
+        private void OnEraChanged(EraDefinition era)
+        {
+            if (eraLabel) eraLabel.text = era.eraName;
+            if (timelineSlider) timelineSlider.value = era.eraIndex;
+        }
+
+        public void UpdateBananaCharges(int current, int max)
+        {
+            if (bananaChargesLabel)
+                bananaChargesLabel.text = $"Banana: {current}/{max}";
+        }
+
+        public void ShowInteractPrompt(string prompt)
+        {
+            if (interactPromptLabel)
+            {
+                interactPromptLabel.text = prompt;
+                interactPromptLabel.gameObject.SetActive(true);
+            }
+        }
+
+        public void HideInteractPrompt()
+        {
+            if (interactPromptLabel)
+                interactPromptLabel.gameObject.SetActive(false);
+        }
+
+        public void ShowMessage(string message, float duration = 2.5f)
+        {
+            if (messageLabel == null) return;
+            if (_messageCoroutine != null) StopCoroutine(_messageCoroutine);
+            _messageCoroutine = StartCoroutine(ShowMessageRoutine(message, duration));
+        }
+
+        private IEnumerator ShowMessageRoutine(string message, float duration)
+        {
+            messageLabel.text = message;
+            messageLabel.gameObject.SetActive(true);
+            yield return new WaitForSeconds(duration);
+            messageLabel.gameObject.SetActive(false);
+        }
     }
 }
