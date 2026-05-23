@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: db604273ece10ff4e9ae00988c198026
+guid: 4ab9c1a08ca04e74ba286f8496f7a8d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1132381366685876256
-    second: Wall Tiles Horizontal_0
+      213: -4053876374438770610
+    second: Pit Vertical_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -144,8 +144,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 1
+        height: 1
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,11 +161,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Tiles Horizontal_0
+      name: Pit Vertical_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -176,17 +176,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 076129868e7fabf4ab78b51feab926fa
-      internalID: 943470708
+      spriteID: 1651f51416453534e809092fa517c536
+      internalID: 1204236720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Tiles Horizontal_1
+      name: Pit Vertical_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fcf70efe13c754b90a64078e3da4a0
+      internalID: -1398116339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit Vertical_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -198,8 +220,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed12ea2b936c10d4aad5fde2fc4bb261
-      internalID: 1949154506
+      spriteID: 7a12c3179e798ad4f9db5935c2d2fe95
+      internalID: 1998521949
       vertices: []
       indices: 
       edges: []
@@ -223,8 +245,9 @@ TextureImporter:
         value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Adventurer_0: -7336558010007070346
-      Wall Tiles Horizontal_0: 943470708
-      Wall Tiles Horizontal_1: 1949154506
+      Pit Vertical_0: 1204236720
+      Pit Vertical_1: -1398116339
+      Pit Vertical_2: 1998521949
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
